@@ -1,6 +1,35 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Sorting Ordered List</title>
+</head>
 <body>
-	<a href="Anything You Want.html"> Anything You Want </a>
+
+    <h2> Books List (Sorted A-Z)</h2>
+    <ol id="book-list">
+	<li> <a href = "https://github.com/TheThawHtetZin/libby-reading-data/blob/main/anything-you-want.html"> Anything You Want </a> </li>
+        <li>Mango</li>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Orange</li>
+    </ol>
+
+    <script>
+        function sortOrderedList() {
+            let list = document.getElementById("book-list");
+            let items = Array.from(list.getElementsByTagName("li"));
+
+            items.sort((a, b) => a.textContent.localeCompare(b.textContent)); // Sort alphabetically
+
+            list.innerHTML = ""; // Clear the list
+            items.forEach(item => list.appendChild(item)); // Add sorted items back
+        }
+
+        sortOrderedList(); // Sort the list on page load
+    </script>
+
 </body>
 </html>
